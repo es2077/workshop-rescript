@@ -1,7 +1,7 @@
 open AncestorSpacy
 open Render
 
-type variant = Author | ReadingTime | Date | Claps
+type variant = Author | ReadingTime | Date | Claps | Comments
 
 @react.component
 let make = (~variant: variant, ~children) => {
@@ -12,6 +12,7 @@ let make = (~variant: variant, ~children) => {
       | Claps => `👏`
       | Date => `📅`
       | ReadingTime => `🕒`
+      | Comments => `💬`
       }->s}
     </Typography>
     <Typography
