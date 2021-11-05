@@ -19,7 +19,7 @@ let make = () => {
       alignItems=[xs(#center)]
       className=link
       tag=#a
-      href="es77.dev"
+      href="https://es77.dev"
       target="_blank">
       <Typography fontSize=[xs(2.4->#rem)] mr=[xs(1)] tag=#span> {`🔗`->s} </Typography>
       <Typography
