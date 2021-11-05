@@ -13,7 +13,7 @@ let make = () => {
     alignItems=[xs(#center)]
     justifyContent=[xs(#"space-between")]
     maxW=[xs(97.0->#rem)]>
-    <img src="/logo.svg" />
+    <Next.Link href="/"> <a> <img src="/logo.svg" /> </a> </Next.Link>
     <Base
       display=[xs(#flex)]
       alignItems=[xs(#center)]

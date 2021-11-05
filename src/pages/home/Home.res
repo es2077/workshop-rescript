@@ -5,7 +5,7 @@ let make = () => {
   <Box mt=[xs(7)]>
     <Box display=[xs(#flex)] justifyContent=[xs(#"flex-end")]>
       //
-      <Button> "New post" </Button>
+      <Next.Link href="/new-post"> <Button> "New post" </Button> </Next.Link>
     </Box>
     <Box mt=[xs(4)]>
       <PostItem
