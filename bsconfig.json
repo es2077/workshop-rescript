@@ -1,0 +1,28 @@
+{
+  "name": "workshop-rescript",
+  "namespace": false,
+  "reason": {
+    "react-jsx": 3
+  },
+  "bs-dependencies": [
+    "@rescript/react",
+    "@rescriptbr/ancestor",
+    "@ryyppy/rescript-promise"
+  ],
+  "ppx-flags": [],
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "warnings": {
+    "error": "+8"
+  },
+  "suffix": ".bs.js",
+  "bsc-flags": ["-bs-g", "-bs-super-errors"]
+}
