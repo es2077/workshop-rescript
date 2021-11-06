@@ -1,27 +1,28 @@
 open AncestorSpacy
 open Render
 
-type variant = Author | ReadingTime | Date | Claps | Comments
+type icon = Author | Clap | Date | Comment | ReadingTime
 
 @react.component
-let make = (~variant: variant, ~children) => {
+let make = (~icon: icon, ~children) => {
   <Box display=[xs(#flex)] alignItems=[xs(#center)] mr=[xs(4)]>
-    <Typography fontSize=[xs(2.4->#rem)] tag=#span mr=[xs(2)]>
-      {switch variant {
+    <Typography tag=#span mr=[xs(2)] fontSize=[xs(#rem(2.4))]>
+      {switch icon {
       | Author => `👤`
-      | Claps => `👏`
+      | Clap => `👏`
       | Date => `📅`
-      | ReadingTime => `🕒`
-      | Comments => `💬`
+      | Comment => `💬`
+      | ReadingTime => `⏰`
       }->s}
     </Typography>
     <Typography
-      tag=#span
-      fontWeight=[xs(#700)]
+      m=[xs(0)]
+      letterSpacing=[xs(#em(-0.03))]
+      tag=#p
       color=[xs(Theme.Colors.black)]
-      fontSize=[xs(1.6->#rem)]
-      letterSpacing=[xs(-0.03->#em)]>
-      {children}
+      fontSize=[xs(#rem(1.6))]
+      fontWeight=[xs(#700)]>
+      {children->s}
     </Typography>
   </Box>
 }

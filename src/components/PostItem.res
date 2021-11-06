@@ -32,12 +32,10 @@ let make = (~title, ~body, ~slug, ~authorName, ~claps, ~date) => {
         color=[xs(Colors.gray)]>
         {body->s}
       </Typography>
-      <Box mt=[xs(4)]>
-        <Box display=[xs(#none), sm(#flex)]>
-          <PostInformation variant=Author> {authorName->s} </PostInformation>
-          <PostInformation variant=Claps> {claps->React.int} </PostInformation>
-          <PostInformation variant=Date> {date->s} </PostInformation>
-        </Box>
+      <Box mt=[xs(4)] display=[xs(#flex)] alignItems=[xs(#center)]>
+        <PostInformation icon=Author> authorName </PostInformation>
+        <PostInformation icon=Clap> {claps->Js.Int.toString} </PostInformation>
+        <PostInformation icon=Date> {date} </PostInformation>
       </Box>
       <Divider mt=[xs(4)] />
     </Box>
