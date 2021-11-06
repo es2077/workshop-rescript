@@ -12,6 +12,9 @@ module HomeQuery = %graphql(`
           id
           title
           body
+          author
+          claps
+          created_at
         }
       }
     }
@@ -20,7 +23,7 @@ module HomeQuery = %graphql(`
 
 @react.component
 let make = () => {
-  let ({Hooks.response: response}, executeQuery) = Hooks.useQuery(~query=module(HomeQuery), ())
+  let ({Hooks.response: response}, _executeQuery) = Hooks.useQuery(~query=module(HomeQuery), ())
 
   <Box mt=[xs(7)]>
     <Box display=[xs(#flex)] justifyContent=[xs(#"flex-end")]>
@@ -37,37 +40,20 @@ let make = () => {
           let {post_connection: {edges: posts}} = data
           <Box>
             {posts
-            ->Belt.Array.map(({node: {id, title, body}}) => {
-              <PostItem title body slug={id} authorName=`Marcos` claps=200 date=`May 21, 2021` />
+            ->Belt.Array.map(({node: {id, title, body, author, claps, created_at}}) => {
+              <PostItem
+                title
+                body
+                slug={id}
+                authorName={author->Belt.Option.getWithDefault("")}
+                claps={claps->Belt.Option.getWithDefault(0)}
+                date={created_at->Belt.Option.getWithDefault(Js.Date.make()->Js.Date.toISOString)}
+              />
             })
             ->React.array}
           </Box>
         }
       }}
-      <PostItem
-        title=`My tweet blew up, what should I do?`
-        body=`I recently started using HypeFury to post tweets regularly. The idea is to build my audience (of Indie Hackers and creators) and hopef...`
-        slug=`my-tweet`
-        authorName=`Marcos`
-        claps=200
-        date=`May 21, 2021`
-      />
-      <PostItem
-        title=`My tweet blew up, what should I do?`
-        body=`I recently started using HypeFury to post tweets regularly. The idea is to build my audience (of Indie Hackers and creators) and hopef...`
-        slug=`my-tweet`
-        authorName=`Marcos`
-        claps=200
-        date=`May 21, 2021`
-      />
-      <PostItem
-        title=`My tweet blew up, what should I do?`
-        body=`I recently started using HypeFury to post tweets regularly. The idea is to build my audience (of Indie Hackers and creators) and hopef...`
-        slug=`my-tweet`
-        authorName=`Marcos`
-        claps=200
-        date=`May 21, 2021`
-      />
     </Box>
   </Box>
 }

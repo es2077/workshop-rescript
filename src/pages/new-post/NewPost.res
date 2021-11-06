@@ -1,8 +1,34 @@
 open AncestorSpacy
 open Render
+open ReScriptUrql
+
+module InsertPostOneMutation = %graphql(`
+  mutation InsertPostOneMutation($input: post_insert_input!) {
+    insert_post_one(object: $input) {
+      id
+      title
+      body
+    }
+  }
+`)
 
 @react.component
 let make = () => {
+  let (_, executeInsertPost) = Hooks.useMutation(~mutation=module(InsertPostOneMutation))
+
+  let _addPost = () => {
+    executeInsertPost({
+      input: {
+        key: None,
+        created_at: Some(Js.Date.make()->Js.Date.toISOString),
+        title: Some("Hello"),
+        body: Some("# My body"),
+        author: Some("Fakenickels"),
+        claps: None,
+        comments: None,
+      },
+    }) |> ignore
+  }
   <Box>
     <Box mb=[xs(4)]>
       <Typography
