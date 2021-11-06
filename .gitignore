@@ -126,3 +126,5 @@ dist
 # OS
 *.DS_STORE
 .DS_STORE
+
+.graphql_ppx_cache

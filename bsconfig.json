@@ -7,9 +7,12 @@
   "bs-dependencies": [
     "@rescript/react",
     "@rescriptbr/ancestor",
-    "@ryyppy/rescript-promise"
+    "@ryyppy/rescript-promise",
+    "@urql/rescript",
+    "wonka",
+    "@reasonml-community/graphql-ppx"
   ],
-  "ppx-flags": [],
+  "ppx-flags": ["@reasonml-community/graphql-ppx/ppx"],
   "sources": [
     {
       "dir": "src",
