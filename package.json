@@ -11,7 +11,8 @@
     "rescript:format": "rescript format",
     "next:dev": "next dev",
     "next:build": "next build",
-    "next:start": "next start"
+    "next:start": "next start",
+    "graphql:update-schema": "npx get-graphql-schema https://workshop-es77.herokuapp.com/v1beta1/relay -j > graphql_schema.json"
   },
   "dependencies": {
     "@emotion/cache": "11.4.0",
@@ -20,14 +21,26 @@
     "@next/bundle-analyzer": "11.0.1",
     "@rescript/react": "0.10.3",
     "@rescriptbr/ancestor": "0.4.4",
+    "@rescriptbr/reform": "^11.0.1",
     "@ryyppy/rescript-promise": "2.1.0",
+    "@urql/rescript": "^4.0.0",
     "date-fns": "^2.25.0",
+    "graphql": "^16.0.1",
     "next": "11.0.1",
     "next-transpile-modules": "8.0.0",
     "normalize.css": "8.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "rescript": "9.1.4"
+    "reschema": "^2.0.3",
+    "rescript": "9.1.4",
+    "urql": "^2.0.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@reasonml-community/graphql-ppx": "^1.2.2",
+    "gentype": "^4.3.0",
+    "lenses-ppx": "^6.1.10"
+  },
+  "resolutions": {
+    "wonka": "5.0.0-rc.1"
+  }
 }

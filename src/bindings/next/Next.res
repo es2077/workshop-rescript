@@ -96,7 +96,7 @@ module Router = {
     asPath: string,
     events: routerEvent,
     pathname: string,
-    query: Js.Dict.t<string>,
+    query: 'a. {..} as 'a,
   }
 
   type path = {
